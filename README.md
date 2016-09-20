@@ -65,19 +65,14 @@ The dropdown below provides a basic order of steps to complete in order to build
       <img src="https://cloud.githubusercontent.com/assets/6520345/18678277/5e59bc6e-7f10-11e6-9070-c5f95b55c4ad.png">
       <br>
       <p>Get the free version:</p>
-
-      <p><img src="https://cloud.githubusercontent.com/assets/6520345/18678305/78961ce4-7f10-11e6-9cf2-a0e19d97a7f2.png"></p>
-
+      <img src="https://cloud.githubusercontent.com/assets/6520345/18678305/78961ce4-7f10-11e6-9cf2-a0e19d97a7f2.png">
       <br><p>Make sure you know the url to hit and check out what the JSON results look like</p>
-
       <img src="https://cloud.githubusercontent.com/assets/6520345/18681431/e1c448d8-7f1c-11e6-95c0-27e3430dffd2.png">
-
     </details></li><br>
     <li><details>
       <summary>Build a working directive without any behavior. Make sure it accepts the city string.</summary>
       <br><p>Check out [yesterday's Cards Against Assembly card directive](https://github.com/sf-wdi-31/angular-custom-directives#know-the-code---independent) as a guide to build a simple directive.</p>
     </details></li><br>
-
     <li><details>
       <summary>Add a controller with the `$http` service as a dependency and make an $http call to the database</summary>
       <br>
@@ -97,7 +92,6 @@ The dropdown below provides a basic order of steps to complete in order to build
         ```
       </p>
     </details></li><br>
-
     <li><details>
       <summary>Make the template reflect the data that you want!</summary>
       <br>
