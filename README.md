@@ -66,7 +66,7 @@ The dropdown below provides a basic order of steps to complete in order to build
       <br>
       <p>Get the free version:</p>
 
-      <img src="https://cloud.githubusercontent.com/assets/6520345/18678305/78961ce4-7f10-11e6-9cf2-a0e19d97a7f2.png">
+      <p><img src="https://cloud.githubusercontent.com/assets/6520345/18678305/78961ce4-7f10-11e6-9cf2-a0e19d97a7f2.png"></p>
 
       <br><p>Make sure you know the url to hit and check out what the JSON results look like</p>
 
@@ -79,9 +79,37 @@ The dropdown below provides a basic order of steps to complete in order to build
     </details></li><br>
 
     <li><details>
-      <summary>Add a controller with the `$http` service as a dependency</summary>
+      <summary>Add a controller with the `$http` service as a dependency and make an $http call to the database</summary>
       <br>
-      <p></p>
+      <p>
+        ```
+        controller: ['$http', function($http){
+              var vm = this;
+              var url="http://api.openweathermap.org/data/2.5/weather?mode=json&cnt=7&units=imperial&callback=JSON_CALLBACK&q=";
+              var apikey = "&appid=" + myKey; // go generate an API key and plug it in here.
+              vm.getWeather = function(city){
+                  $http({method: 'JSONP', url: url + city + apikey})
+                      .success(function(data){
+                          vm.weather = data;
+                      });
+              }
+          }],
+        ```
+      </p>
+    </details></li><br>
+
+    <li><details>
+      <summary>Make the template reflect the data that you want!</summary>
+      <br>
+      <p>
+        A very simple template could look like this:
+        ```html
+          <div class="current-weather">
+            <h4>Weather for {{city}}</h4>
+            {{weather.main.temp}}
+          </div>
+        ```
+      </p>
     </details></li>
   </ol>
 
