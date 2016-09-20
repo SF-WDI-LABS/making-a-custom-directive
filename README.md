@@ -118,7 +118,7 @@ The dropdown below provides a basic order of steps to complete in order to build
         ```html
           <div class="current-weather">
             <h4>Weather for {{city}}</h4>
-            {{weather.main.temp}}
+            {{weatherCardCtrl.weather.main.temp}}
           </div>
         ```
       </p>
