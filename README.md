@@ -74,22 +74,40 @@ The dropdown below provides a basic order of steps to complete in order to build
       <br><p>Check out [yesterday's Cards Against Assembly card directive](https://github.com/sf-wdi-31/angular-custom-directives#know-the-code---independent) as a guide to build a simple directive.</p>
     </details></li><br>
     <li><details>
-      <summary>Add a controller with the `$http` service as a dependency and make an $http call to the database</summary>
+      <summary>Add a controller with the `$http` service as a dependency and make an `$http` call to the database</summary>
       <br>
       <p>
+
+        ```javascript
+        ...
+          controllerAs: 'weatherCardCtrl',
+
+          controller: weatherCardController,
+        ...
         ```
-        controller: ['$http', function($http){
-              var vm = this;
-              var url="http://api.openweathermap.org/data/2.5/weather?mode=json&cnt=7&units=imperial&callback=JSON_CALLBACK&q=";
-              var apikey = "&appid=" + myKey; // go generate an API key and plug it in here.
-              vm.getWeather = function(city){
-                  $http({method: 'JSONP', url: url + city + apikey})
-                      .success(function(data){
-                          vm.weather = data;
-                      });
-              }
-          }],
-        ```
+        <br>
+        <br>
+        ```javascript
+  weatherCardController.$inject = ['$http', '$scope'];
+  function weatherCardController($http, $scope){
+    var vm = this;
+    var url="http://api.openweathermap.org/data/2.5/weather?mode=json&cnt=7&units=imperial&q=";
+    var apikey = "&appid=" + '284c1c2d36e318ea0a389b743d94c747';
+    vm.getWeather = function(city){
+      console.log(url + city + apikey);
+      $http({
+        method: 'GET',
+        url: url + city + apikey
+      }).then(function(response){
+          console.log(response);
+          vm.weather = response.data;
+        }, function(err){
+          console.log(err);
+        });
+    };
+    vm.getWeather($scope.city);
+  };
+  ```
       </p>
     </details></li><br>
     <li><details>
@@ -103,6 +121,13 @@ The dropdown below provides a basic order of steps to complete in order to build
             {{weather.main.temp}}
           </div>
         ```
+      </p>
+    </details></li><br>
+    <li><details>
+      <summary>Tie all of the pieces together and add some styling</summary>
+      <br>
+      <p>
+        [Here is the full solution  ](https://github.com/sf-wdi-31/weather-directive) with a few notes about the details.
       </p>
     </details></li>
   </ol>
