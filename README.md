@@ -77,37 +77,35 @@ The dropdown below provides a basic order of steps to complete in order to build
       <summary>Add a controller with the `$http` service as a dependency and make an `$http` call to the database</summary>
       <br>
       <p>
-
         ```javascript
         ...
           controllerAs: 'weatherCardCtrl',
-
           controller: weatherCardController,
         ...
         ```
         <br>
         <br>
         ```javascript
-  weatherCardController.$inject = ['$http', '$scope'];
-  function weatherCardController($http, $scope){
-    var vm = this;
-    var url="http://api.openweathermap.org/data/2.5/weather?mode=json&cnt=7&units=imperial&q=";
-    var apikey = "&appid=" + '284c1c2d36e318ea0a389b743d94c747';
-    vm.getWeather = function(city){
-      console.log(url + city + apikey);
-      $http({
-        method: 'GET',
-        url: url + city + apikey
-      }).then(function(response){
-          console.log(response);
-          vm.weather = response.data;
-        }, function(err){
-          console.log(err);
-        });
-    };
-    vm.getWeather($scope.city);
-  };
-  ```
+        weatherCardController.$inject = ['$http', '$scope'];
+        function weatherCardController($http, $scope){
+          var vm = this;
+          var url="http://api.openweathermap.org/data/2.5/weather?mode=json&cnt=7&units=imperial&q=";
+          var apikey = "&appid=" + '284c1c2d36e318ea0a389b743d94c747';
+          vm.getWeather = function(city){
+            console.log(url + city + apikey);
+            $http({
+              method: 'GET',
+              url: url + city + apikey
+            }).then(function(response){
+                console.log(response);
+                vm.weather = response.data;
+              }, function(err){
+                console.log(err);
+              });
+          };
+          vm.getWeather($scope.city);
+        };
+        ```
       </p>
     </details></li><br>
     <li><details>
@@ -127,7 +125,7 @@ The dropdown below provides a basic order of steps to complete in order to build
       <summary>Tie all of the pieces together and add some styling</summary>
       <br>
       <p>
-        [Here is the full solution  ](https://github.com/sf-wdi-31/weather-directive) with a few notes about the details.
+        [Here is the full solution](https://github.com/sf-wdi-31/weather-directive) with a few notes about the details.
       </p>
     </details></li>
   </ol>
